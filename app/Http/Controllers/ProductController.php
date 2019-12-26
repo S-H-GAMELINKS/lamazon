@@ -41,7 +41,7 @@ class ProductController extends Controller
 
         $product->save();
         
-        return redirect()->route('products.show', ['id' => $product->id]);
+        return redirect()->route('products.show', $product);
     }
 
     /**
