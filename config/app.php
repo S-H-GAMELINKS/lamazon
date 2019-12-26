@@ -177,6 +177,8 @@ return [
 
         // Add laravel-follow
         Overtrue\LaravelFollow\FollowServiceProvider::class,
+        // Add Shoppingcart
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
     ],
 
     /*
@@ -228,6 +230,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // Add Shoppingcart alias
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];
