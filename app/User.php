@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Overtrue\LaravelFollow\Traits\CanFavorite;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, CanFavorite;
 
     /**
      * The attributes that are mass assignable.
