@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('carts', 'CartsController', [
+Route::resource('carts', 'CartController', [
     'only' => ['index', 'store', 'update', 'destroy']
 ]);
 

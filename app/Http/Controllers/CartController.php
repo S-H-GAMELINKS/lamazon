@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
@@ -11,5 +12,12 @@ class CartController extends Controller
         $cart = Cart::content();
 
         return view('carts.index', compact('cart'));
+    }
+
+    public function store(Request $request)
+    {
+        Cart::add($request->all());
+
+        return redirect()->route('products.show', $request->get('id'));
     }
 }

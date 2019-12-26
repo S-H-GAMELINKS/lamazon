@@ -13,6 +13,15 @@
     {{Form::close()}}
 @endif
 
+{{Form::open(['route' => 'carts.store'])}}
+    {{Form::hidden('id', $product->id)}}
+    {{Form::hidden('name', $product->name)}}
+    {{Form::hidden('qty', 1)}}
+    {{Form::hidden('price', $product->price)}}
+    {{Form::hidden('weight', 0)}}
+    {{Form::submit('Add')}}
+{{Form::close()}}
+
 @foreach($reviews as $review)
     {{$review->content}}
 @endforeach
