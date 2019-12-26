@@ -26,9 +26,11 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
-        //
+        $user = Auth::user();
+
+        return view('users.edit', compact('user'));
     }
 
     /**
