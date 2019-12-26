@@ -16,4 +16,9 @@ class Product extends Model
     {
         return $this->hasMany('App\Review');
     }
+
+    public function category()
+    {
+        return $this->hasOne('App\Category');
+    }
 }
