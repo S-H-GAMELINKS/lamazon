@@ -14,9 +14,11 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Product $product, Request $request)
     {
-        //
+        $product->reviews()->create($request->all());
+
+        return redirect()->route('products.show', $product);
     }
 
     /**
@@ -26,7 +28,7 @@ class ReviewController extends Controller
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Review $review)
+    public function update(Product $product, Request $request, Review $review)
     {
         //
     }
@@ -37,7 +39,7 @@ class ReviewController extends Controller
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(Product $product, Review $review)
     {
         //
     }
