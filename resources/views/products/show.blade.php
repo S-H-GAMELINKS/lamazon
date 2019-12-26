@@ -3,6 +3,16 @@
     {{$product->price}}
     {{$product->category->name}}
 
+@if($product->isFavoritedBy(Auth::user()))
+    {{Form::open(['route' => ['products.fav', $product]])}}
+        {{Form::submit('UnFav')}}
+    {{Form::close()}}
+@else
+    {{Form::open(['route' => ['products.fav', $product]])}}
+        {{Form::submit('Fav')}}
+    {{Form::close()}}
+@endif
+
 @foreach($reviews as $review)
     {{$review->content}}
 @endforeach
