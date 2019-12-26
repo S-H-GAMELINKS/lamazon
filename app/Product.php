@@ -10,6 +10,7 @@ class Product extends Model
         'name',
         'description',
         'price',
+        'category_id'
     ];
 
     public function reviews()
@@ -19,6 +20,6 @@ class Product extends Model
 
     public function category()
     {
-        return $this->hasOne('App\Category');
+        return $this->belongsTo('App\Category');
     }
 }
