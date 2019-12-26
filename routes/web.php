@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('products', 'ProductController');
 
+Route::resource('categories', 'CategoryController');
+
 Route::resource('products.reviews', 'ReviewController', [
     'only' => ['store', 'update', 'destroy']
 ]);
