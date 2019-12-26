@@ -20,3 +20,7 @@ Route::resource('products', 'ProductController');
 Route::resource('products.reviews', 'ReviewController', [
     'only' => ['store', 'update', 'destroy']
 ]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
