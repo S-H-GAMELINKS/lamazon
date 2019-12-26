@@ -11,4 +11,9 @@ class Product extends Model
         'description',
         'price',
     ];
+
+    protected function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
 }
