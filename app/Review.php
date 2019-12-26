@@ -11,7 +11,7 @@ class Review extends Model
         'product_id',
     ];
 
-    protected function product()
+    public function product()
     {
         return $this->belongsTo('App\Product');
     }

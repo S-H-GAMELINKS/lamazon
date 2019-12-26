@@ -12,7 +12,7 @@ class Product extends Model
         'price',
     ];
 
-    protected function reviews()
+    public function reviews()
     {
         return $this->hasMany('App\Review');
     }
