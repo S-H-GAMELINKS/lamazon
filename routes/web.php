@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('carts', 'CartsController', [
+    'only' => ['index', 'store', 'update', 'destroy']
+]);
+
 Route::resource('products', 'ProductController');
 
 Route::post('/products/{product}/fav', 'ProductController@fav')->name('products.fav');
