@@ -21,6 +21,12 @@ Route::resource('products.reviews', 'ReviewController', [
     'only' => ['store', 'update', 'destroy']
 ]);
 
+Route::group(['prefix' => 'users'], function () {
+    Route::get('mypage', 'UserController@mypage')->name('mypage');
+    Route::get('mypage/edit', 'UserController@edit')->name('mypage.edit');
+    Route::put('mypage', 'UserController@update');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
