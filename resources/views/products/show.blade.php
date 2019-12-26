@@ -1,6 +1,7 @@
     {{$product->name}}
     {{$product->description}}
     {{$product->price}}
+    {{$product->category->name}}
 
 @foreach($reviews as $review)
     {{$review->content}}
