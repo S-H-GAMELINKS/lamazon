@@ -21,7 +21,7 @@ Route::resource('carts', 'CartController', [
 
 Route::resource('products', 'ProductController');
 
-Route::post('/products/{product}/fav', 'ProductController@fav')->name('products.fav');
+Route::post('products/{product}/fav', 'ProductController@fav')->name('products.fav');
 
 Route::resource('categories', 'CategoryController');
 
