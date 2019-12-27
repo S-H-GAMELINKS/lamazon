@@ -10,7 +10,7 @@
 
     <h2 class="text-center">Recently Products</h2>
 
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         @foreach ($recentProducts as $product)
             <div class="card col-3 m-3">
                 <div class="card-body">
