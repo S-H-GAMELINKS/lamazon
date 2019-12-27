@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WebController@index');
+
+Route::get('/about', 'WebController@about');
+
+Route::get('/contact', 'WebController@contact');
 
 Route::resource('carts', 'CartController', [
     'only' => ['index', 'store', 'update', 'destroy']
