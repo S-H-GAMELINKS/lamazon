@@ -28,6 +28,8 @@
                 @yield('content')
             </div>
         </main>
+        @component('layouts.footer')
+        @endcomponent
     </div>
 </body>
 </html>
