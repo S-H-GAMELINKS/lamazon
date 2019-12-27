@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
     public function index()
     {
-        return view('web.index');
+        $recentProducts = Product::orderBy('created_at', 'desc')->take(12)->get();
+
+        return view('web.index', compact('recentProducts'));
     }
 
     public function about()
