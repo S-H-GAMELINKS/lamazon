@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
     {{$product->name}}
     {{$product->description}}
     {{$product->price}}
@@ -32,3 +35,5 @@
 {{Form::close()}}
 
 <a href="{{route('products.edit', $product)}}">Edit</a>
+
+@endsection

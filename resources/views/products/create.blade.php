@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 {{Form::open(['route' => 'products.store'])}}
     {{Form::input('text', 'name')}}
     {{Form::textarea('description')}}
@@ -5,3 +9,5 @@
     {{Form::select('category_id', $categories)}}
     {{Form::submit('Create')}}
 {{Form::close()}}
+
+@endsection

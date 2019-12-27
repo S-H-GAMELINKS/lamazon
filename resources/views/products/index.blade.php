@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 @foreach($products as $product)
     {{$product->name}}
     {{$product->description}}
@@ -8,3 +12,5 @@
 @endforeach
 
 <a href="{{route('products.create')}}">New</a>
+
+@endsection
