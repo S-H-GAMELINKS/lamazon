@@ -12,7 +12,7 @@
         </select>
     </div>
     <div class="form-group">
-        <select class="form-control" name="sort">
+        <select class="form-control" name="sort" onChange="this.form.submit();">
             @foreach ($sort as $key => $value)
                 <option value="{{ $value }}">{{ $key }}</option>
             @endforeach
