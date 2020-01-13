@@ -2,6 +2,20 @@
 
 @section('content')
 
+    <form method="get" action="{{ route('products.index')}}">
+        <div class="form-group">
+            <label for="categoreis">Category</label>
+            <select class="form-control" id="categoreis" name="category">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id}}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
     <div class="row d-flex justify-content-center">
         @foreach ($products as $product)
             <div class="card col-3 m-3">

@@ -14,11 +14,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(9);
+        if ($request->category !== null) {
+            $products = Product::where('category_id', $request->category)->paginate(9);
+        } else {
+            $products = Product::paginate(9);
+        }
 
-        return view('products.index', compact('products'));
+        $categories = Category::all();
+
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function fav(Product $product) 
