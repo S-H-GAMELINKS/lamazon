@@ -4,10 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
+use Kyslik\ColumnSortable\Sortable;
 
 class Product extends Model
 {
-    use CanBeFavorited;
+    use CanBeFavorited, Sortable;
+
+    public $sortable = [
+        'price', 
+        'updated_at'
+    ];
 
     protected $fillable = [
         'name',

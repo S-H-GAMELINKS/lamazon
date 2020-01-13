@@ -16,15 +16,30 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->category !== null) {
-            $products = Product::where('category_id', $request->category)->paginate(9);
-        } else {
-            $products = Product::paginate(9);
+        $sort_query = [];
+
+        if ($request->sort !== null) {
+            $slices = explode(' ', $request->sort);
+            $sort_query[$slices[0]] = $slices[1];
         }
+
+        if ($request->category !== null) {
+            $products = Product::where('category_id', $request->category)->sortable($sort_query)->paginate(9);
+        } else {
+            $products = Product::sortable($sort_query)->paginate(9);
+        }
+
+        $sort = [
+            '並び替え' => '', 
+            '価格の安い順' => 'price asc',
+            '価格の高い順' => 'price desc', 
+            '出品の古い順' => 'updated_at asc', 
+            '出品の新しい順' => 'updated_at desc'
+        ];
 
         $categories = Category::all();
 
-        return view('products.index', compact('products', 'categories'));
+        return view('products.index', compact('products', 'categories', 'sort'));
     }
 
     public function fav(Product $product) 
