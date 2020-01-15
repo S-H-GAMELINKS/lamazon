@@ -11,23 +11,27 @@ class CartController extends Controller
 {
     public function index()
     {
-        $cart = Cart::content();
+        $cart = Cart::instance(Auth::user()->id)->content();
 
         return view('carts.index', compact('cart'));
     }
 
     public function store(Request $request)
     {
-        Cart::add($request->all());
+        Cart::instance(Auth::user()->id)->add($request->all());
 
         return redirect()->route('products.show', $request->get('id'));
     }
 
-    public function update(Request $request)
+    public function destroy(Request $request)
     {
-        $count = DB::table('shoppingcart')->where('identifier', Auth::user()->id)->get()->count();
+        $count = DB::table('shoppingcart')->where('instance', Auth::user()->id)->get()->count();
+
+        $count = $count + 1;
 
         Cart::instance(Auth::user()->id)->store($count);
+
+        Cart::instance(Auth::user()->id)->destroy();
 
         return redirect()->route('carts.index');
     }

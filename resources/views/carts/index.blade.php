@@ -14,4 +14,8 @@
     @endforeach
 </div>
 
+{{Form::open(['route' => 'carts.destroy', 'method' => 'DELETE'])}}
+    {{Form::submit('Buy', ['class' => 'btn btn-danger'])}}
+{{Form::close()}}
+
 @endsection

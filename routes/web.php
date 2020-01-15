@@ -17,9 +17,11 @@ Route::get('/about', 'WebController@about');
 
 Route::get('/contact', 'WebController@contact');
 
-Route::resource('carts', 'CartController', [
-    'only' => ['index', 'store', 'update', 'destroy']
-]);
+Route::get('carts', 'CartController@index')->name('carts.index');
+
+Route::post('carts', 'CartController@store')->name('carts.store');
+
+Route::delete('carts', 'CartController@destroy')->name('carts.destroy');
 
 Route::resource('products', 'ProductController');
 
