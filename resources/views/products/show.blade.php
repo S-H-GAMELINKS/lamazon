@@ -7,6 +7,7 @@
     <p class="display-4">Price: {{$product->price}}</p>
     <p class="display-4">Category: {{$product->category->name}}</p>
 
+    @auth
     <div class="m-3">
         @if($product->isFavoritedBy(Auth::user()))
             {{Form::open(['route' => ['products.fav', $product]])}}
@@ -18,6 +19,7 @@
             {{Form::close()}}
         @endif
     </div>
+    @endauth
 
     <div class="m-3">
         {{Form::open(['route' => 'carts.store'])}}
