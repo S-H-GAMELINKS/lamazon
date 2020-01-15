@@ -19,7 +19,6 @@
             {{Form::close()}}
         @endif
     </div>
-    @endauth
 
     <div class="m-3">
         {{Form::open(['route' => 'carts.store'])}}
@@ -31,6 +30,7 @@
             {{Form::submit('Add', ['class' => 'btn btn-primary'])}}
         {{Form::close()}}
     </div>
+    @endauth
 
     @foreach($reviews as $review)
         <div class="m-2">
@@ -38,6 +38,7 @@
         </div>
     @endforeach
 
+    @auth
     <div class="m-3">
     {{Form::open(['route' => ['products.reviews.store', $product]])}}
         <div class="m-2">
@@ -46,6 +47,7 @@
         {{Form::submit('Create', ['class' => 'btn btn-primary'])}}
     {{Form::close()}}
     </div>
+    @endauth
 
 <a href="{{route('products.edit', $product)}}">Edit</a>
 
