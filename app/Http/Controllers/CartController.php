@@ -29,7 +29,9 @@ class CartController extends Controller
 
         $count = $count + 1;
 
-        Cart::instance(Auth::user()->id)->store($count);
+        Cart::instance(Auth::user()->id)->store($count, true);
+
+        DB::table('shoppingcart')->where('instance', Auth::user()->id)->where('identifier', $count)->update(['buy_flag' => true]);
 
         Cart::instance(Auth::user()->id)->destroy();
 
