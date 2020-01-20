@@ -34,6 +34,9 @@
 
     @foreach($reviews as $review)
         <div class="m-2">
+            <p>{{str_repeat('★', $review->score)}}</p>
+        </div>
+        <div class="m-2">
             <p>{{$review->content}}</p>
         </div>
     @endforeach
@@ -41,6 +44,9 @@
     @auth
     <div class="m-3">
     {{Form::open(['route' => ['products.reviews.store', $product]])}}
+        <div class="m-2">
+            {{Form::select('score', $score, ['class' => 'form-control'])}}
+        </div>
         <div class="m-2">
             {{Form::textarea('content', "", ['class' => 'form-control'])}}
         </div>

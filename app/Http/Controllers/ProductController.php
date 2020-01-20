@@ -92,7 +92,15 @@ class ProductController extends Controller
     {
         $reviews = $product->reviews()->get();
 
-        return view('products.show', compact('product'), compact('reviews'));
+        $score = [
+            '1' => '★',
+            '2' => '★★',
+            '3' => '★★★',
+            '4' => '★★★★',
+            '5' => '★★★★★',
+        ];
+
+        return view('products.show', compact('product'), compact('reviews', 'score'));
     }
 
     /**
