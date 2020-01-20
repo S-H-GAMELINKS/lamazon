@@ -27,6 +27,7 @@
             {{Form::hidden('qty', 1)}}
             {{Form::hidden('price', $product->price)}}
             {{Form::hidden('weight', 0)}}
+            {{Form::hidden('carriage', $product->carriage)}}
             {{Form::submit('Add', ['class' => 'btn btn-primary'])}}
         {{Form::close()}}
     </div>

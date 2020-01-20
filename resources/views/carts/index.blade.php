@@ -8,7 +8,11 @@
         <div class="card-body">
             <h5 class="card-title">{{$product->name}}</h5>
             <p class="card-text">Price :{{$product->price}}  Quantity: {{$product->qty}}</p>
-            <p class="card-text">SubTotal: {{$product->subtotal}}</p>
+            @if ($product->options->carriage)
+                <p class="card-text">SubTotal: {{$product->subtotal + 800 * $product->qty}}</p>
+            @else
+                <p class="card-text">SubTotal: {{$product->subtotal}}</p>
+            @endif
         </div>
     </div>
     @endforeach
