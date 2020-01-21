@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use App\Admin\Extensions\Tools\ImportProductButton;
 
 class ProductController extends AdminController
 {
@@ -34,6 +35,11 @@ class ProductController extends AdminController
         $grid->column('updated_at', __('Updated at'));
         $grid->column('category_id', __('Category id'));
         $grid->column('carriage', __('Carriage'));
+
+        // 作成したImportButtonをツールに表示
+        $grid->tools(function ($tools) {
+            $tools->append(new ImportProductButton());
+        });
 
         return $grid;
     }

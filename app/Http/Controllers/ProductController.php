@@ -6,6 +6,8 @@ use App\Product;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Imports\ProductImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -101,6 +103,13 @@ class ProductController extends Controller
         ];
 
         return view('products.show', compact('product'), compact('reviews', 'score'));
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new ProductImport, $request->file('file'));
+
+        return redirect('/admin/products');
     }
 
     /**

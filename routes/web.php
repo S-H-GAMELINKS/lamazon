@@ -27,6 +27,8 @@ Route::resource('products', 'ProductController');
 
 Route::post('products/{product}/fav', 'ProductController@fav')->name('products.fav');
 
+Route::post('products/import/', 'ProductController@import');
+
 Route::resource('categories', 'CategoryController');
 
 Route::resource('products.reviews', 'ReviewController', [
