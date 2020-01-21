@@ -17,4 +17,6 @@ Route::group([
     $router->resource('customers', UserController::class);
 
     $router->resource('categories', CategoryController::class);
+
+    $router->resource('carts', CartController::class);
 });
