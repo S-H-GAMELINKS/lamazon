@@ -51,4 +51,14 @@ class UserController extends Controller
 
         return redirect()->route('mypage');
     }
+
+    public function token(Request $request) 
+    {
+        $user = Auth::user();
+
+        $user->token = request("payjp-token");
+        $user->save();
+
+        return redirect()->route('mypage');
+    }
 }
